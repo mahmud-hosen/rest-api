@@ -1,0 +1,58 @@
+data show(index) & data store same URL : http://localhost:8000/api/class
+For index Method will be get
+For store Method will be Post
+----------------------------------------------------------------------------
+
+                                       
+                                          Store 
+                                      -------------
+                                       
+         
+Method: Post
+
+Headers:
+
+    Key:               Value:
+   -------       -------------------            
+   Accept          application/json
+   Content-Type    application/json 
+
+
+Body :
+  select : x-www-form-urlencodeed 
+  Key (Column name)           Value(Column Value)
+----------------------       ---------------------
+class_name                        two
+
+
+
+                                           Destroy
+-----------------------------------------------------------------------------------------
+                                    http://localhost:8000/api/class/{id}
+
+                      Method: delete       URL :http://localhost:8000/api/class/2
+
+
+
+                                           Show
+-----------------------------------------------------------------------------------------
+                                    http://localhost:8000/api/class/{id}
+
+                      Method: get       URL :http://localhost:8000/api/class/2
+
+
+                        
+                                          Update
+                                      -------------
+                           http://localhost:8000/api/class/{id}
+
+                      Method: Patch       URL :http://localhost:8000/api/class/2
+
+
+
+Body :
+  select : x-www-form-urlencodeed 
+  Key (Column name)           Value(Column Value) Update value
+----------------------       ---------------------
+class_name                        two
+

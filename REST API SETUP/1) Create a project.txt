@@ -1,0 +1,18 @@
+Project Name apidevelopment 
+1) Create project
+2) Create database
+3) env file edit set database name
+4) Go to api.php
+5) Go to AppserviceProvider.php
+    use :
+         
+        use Illuminate\Support\Facades\Schema;        in top & 
+        Schema::defaultStringLength(191);  in boot function 
+   Like:   
+   public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+
+6) php artisan migrate 
+     

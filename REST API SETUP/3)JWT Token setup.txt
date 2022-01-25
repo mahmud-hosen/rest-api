@@ -1,0 +1,2 @@
+Follow: https://jwt-auth.readthedocs.io/en/docs/laravel-installation/
+

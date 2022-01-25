@@ -1,0 +1,116 @@
+
+                                          JWT Token Login or token generate
+                                     ----------------------------------------
+
+Follow it link command : https://jwt-auth.readthedocs.io/en/docs/laravel-installation/
+After complete go to Postman :
+
+      http://localhost:8000/api/auth/login
+      Method :   Post
+
+     Headers:
+        Accept           Appliction/Json
+       Content-Type     Applicarion/x-www-from-urllencoded
+
+   Body:
+     Key:               value
+      email            mahmud15-1862@diu.edu.bd
+     password          1234    
+
+
+
+                                             JWT ME 
+                                     ----------------------------------------
+
+http://localhost:8000/api/auth/me
+Method :Post 
+Headers:
+Accept            application/json
+Content-Type      application/json
+Authorization    Bearer Token
+
+Token Like(eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNjk0MTMyMCwiZXhwIjoxNjE2OTQ0OTIwLCJuYmYiOjE2MTY5NDEzMjAsImp0aSI6ImJ1ZFBON1RYYnBQMUFZNlgiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.I2dm55M5kHBPpkMZJs0uzsnrnuoRrnuhFI68a2OAsNM  
+)
+
+
+          OR:
+
+http://localhost:8000/api/auth/me?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNjk0MTMyMCwiZXhwIjoxNjE2OTQ0OTIwLCJuYmYiOjE2MTY5NDEzMjAsImp0aSI6ImJ1ZFBON1RYYnBQMUFZNlgiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.I2dm55M5kHBPpkMZJs0uzsnrnuoRrnuhFI68a2OAsNM
+                                    
+
+                                                       JWT Logout 
+                                     ----------------------------------------
+
+
+
+http://localhost:8000/api/auth/logout
+Method :Post 
+Headers:
+Accept            application/json
+Content-Type      application/json
+Authorization    Bearer Token
+
+Token Like(eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNjk0MTMyMCwiZXhwIjoxNjE2OTQ0OTIwLCJuYmYiOjE2MTY5NDEzMjAsImp0aSI6ImJ1ZFBON1RYYnBQMUFZNlgiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.I2dm55M5kHBPpkMZJs0uzsnrnuoRrnuhFI68a2OAsNM  
+)
+
+
+
+                                                    JWT Register
+                                     ----------------------------------------
+
+Use route api.php file
+Route::post('register', 'AuthController@register');
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+use DB;
+
+
+
+
+ public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['login','register']]);
+    }
+
+    public function register(Request $request)
+    {
+            
+        $validatedData = $request->validate([
+                'name' => ['required','string','max:255'],
+                'email' => ['required','string','email','max:255','unique:users'],
+                'password' => ['required'],
+            ]);
+       
+            $data=array();
+        $data['name']=$request->name;
+        $data['email']=$request->email;
+        $data['password'] = Hash::make($request->password);
+
+        DB::table('users')->insert($data);
+        return $this->login($request);
+
+        
+    }
+
+
+Postman:
+
+http://localhost:8000/api/auth/register
+Method:Post
+
+Headers:
+Accept            application/json
+Content-Type      application/json
+
+name                     mahmud 
+email                    mahmud@gmail.com
+password                 1234
+password_confirmation    1234
+
+Pass: 1234   is Hash  
+$2y$10$mvsPmYnSICNSC.fAHgqw2e7mMcUQDcI7h5L5ZxcnjzHi0BDq.4cGO
+

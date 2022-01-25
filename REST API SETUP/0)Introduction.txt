@@ -1,0 +1,20 @@
+
+Youtube Link Learn from this Playlist : https://www.youtube.com/watch?v=Muyx9clXV3c&list=PLbC4KRSNcMnoQONzuNtFlhEzegTYadoBY
+
+
+1)     REST API :(Representational state transfer (REST)
+
+RESTful APIs The API user is the web developer who can build a script that connects into an external API server, then the necessary data is passed over HTTP. ... Generally speaking there are four commands used to access RESTful APIs: GET for retrieving an object. POST for creating a new object.
+
+REST is just a series of guidelines and architectural styles used for data transmission. It's commonly applied to web applications, but can pass data to software as well. The acronym API stands for Application Programming Interface, which are methods of connecting with other libraries or applications
+
+A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. ... REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST leverages less bandwidth, making it more suitable for internet usage
+A REST API works in a similar way. You search for something, and you get a list of results back from the service you're requesting from. ... The developer creates the API on the server and allows the client to talk to it. REST determines how the API looks like. It stands for “Representational State Transfer.
+
+2) HTTP Request ( Data delete ,update, create ,Edit ) ->URL a hit 
+3) Tool : Postman ( Handel for HTTP request ) 
+    Download : https://www.postman.com/downloads/
+
+4) Third party Api ( Facebook,google api ,SSL)
+   First party api ( Develop by self )
+
